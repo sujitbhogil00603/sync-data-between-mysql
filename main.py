@@ -22,7 +22,7 @@ cursor = conn.cursor()
 print("db Connected")
 
 create_table_sql = """
-    CREATE TABLE IF NOT EXISTS diamondsSheet (
+    CREATE TABLE IF NOT EXISTS diamonds_final (
         ID INT PRIMARY KEY,
         Stock_id VARCHAR(255),
         ReportNo VARCHAR(255),
@@ -61,7 +61,7 @@ def sync_data():
 
     
     sql = f"""
-            INSERT INTO diamondsSheet (ID, Stock_id, ReportNo, Shape, Carats, color, clarity, cut, polish, symmetry, flou, length, width, height, depth, `table`, lab, video, image, Price, Currency)
+            INSERT INTO diamonds_final (ID, Stock_id, ReportNo, Shape, Carats, color, clarity, cut, polish, symmetry, flou, length, width, height, depth, `table`, lab, video, image, Price, Currency)
             VALUES (%(ID)s, %(Stock id)s, %(ReportNo)s, %(Shape)s, %(Carats)s, %(color)s, %(clarity)s, %(cut)s, %(polish)s, %(symmetry)s, %(flou)s, %(length)s, %(width)s, %(height)s, %(depth)s, %(table)s, %(lab)s, %(video)s, %(image)s, %(Price)s, %(Currency)s)
             ON DUPLICATE KEY UPDATE
                 Stock_id = VALUES(Stock_id),
